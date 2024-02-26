@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ThemeColorContext } from "./context/themeColorContext";
 
+//utils
+import sizes from "./utils/sizes";
+
 export default function Home() {
   const { themeContainerStyle } = useContext(ThemeColorContext);
 
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   demoText: {
-    fontFamily: "BoldFont",
-    fontSize: 30,
+    fontFamily: "RegularFont",
+    fontSize: sizes.FONT_SIZE_12,
   },
 });
