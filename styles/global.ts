@@ -2,13 +2,12 @@ import { StyleSheet } from "react-native";
 
 export const images = {
   icons: {
-    "cloud": require("../assets/icons/cloud-computing.png"),
-    "errorCloud": require("../assets/icons/error-load.png"),
-    "loading": require("../assets/icons/loading.png"),
-    "doorIcon": require("../assets/icons/opened-door-aperture.png"),
-    "search": require("../assets/icons/search.png"),
-    "addIcon": require("../assets/icons/plus.png"),
-   
+    cloud: require("../assets/icons/cloud-computing.png"),
+    errorCloud: require("../assets/icons/error-load.png"),
+    loading: require("../assets/icons/loading.png"),
+    doorIcon: require("../assets/icons/opened-door-aperture.png"),
+    search: require("../assets/icons/search.png"),
+    addIcon: require("../assets/icons/plus.png"),
   },
 };
 
@@ -121,3 +120,26 @@ export const COLORS = {
   },
 };
 
+export const Theming = StyleSheet.create({
+  //LIGHT Container
+  lightContainer: {
+    backgroundColor: COLORS.backgroundLight,
+  },
+
+  //LIGHT Text
+  lightThemeText: {
+    color: COLORS.neutral[500],
+  },
+
+  // ||-------------------------- DARK ---------------------------------||
+
+  //DARK Container
+  darkContainer: {
+    backgroundColor: COLORS.backgroundDark,
+  },
+
+  //DARK Text
+  darkThemeText: {
+    color: COLORS.neutral.dark[500],
+  },
+});
