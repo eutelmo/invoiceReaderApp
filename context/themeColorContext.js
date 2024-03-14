@@ -18,6 +18,7 @@ export const ThemeColorContext = createContext();
 export const ThemeColorProvider = ({ children }) => {
   const colorScheme = useColorScheme();
 
+
   // Container
   const themeContainerStyle =
     colorScheme === "light" ? Theming.lightContainer : Theming.darkContainer;
