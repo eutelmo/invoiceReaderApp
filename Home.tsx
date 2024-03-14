@@ -1,29 +1,29 @@
 import { useContext } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { ThemeColorContext } from "./context/themeColorContext";
 
 //utils
 import sizes from "./utils/sizes";
+import HomePageComponent from "./shared/homePageComponent/HomePageComponent/homePageComponent";
+import { images } from "./styles/global";
 
 export default function Home() {
   const { themeContainerStyle } = useContext(ThemeColorContext);
 
   return (
-    <>
-      <View style={[styles.container, themeContainerStyle]}>
-        <Text style={styles.demoText}>
-          Open up App to start working on your app!
-        </Text>
-      </View>
-    </>
+    <View style={[styles.container, themeContainerStyle]}>
+      <SafeAreaView>
+        <HomePageComponent text="Adicionar despesas" image={images.icons["addIcon"]}/>
+        <HomePageComponent text="Consultar despesas" image={images.icons["search"]}/>
+        <HomePageComponent text="Sair" image={images.icons["doorIcon"]}/>
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
   demoText: {
     fontFamily: "RegularFont",
