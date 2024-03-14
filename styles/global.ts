@@ -8,6 +8,8 @@ export const images = {
     doorIcon: require("../assets/icons/opened-door-aperture.png"),
     search: require("../assets/icons/search.png"),
     addIcon: require("../assets/icons/plus.png"),
+    QRImage: require("../assets/icons/QRImage.png"),
+
   },
 };
 

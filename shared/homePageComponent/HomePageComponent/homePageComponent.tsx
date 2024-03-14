@@ -1,7 +1,11 @@
 import { ReactNode, useContext } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+//utils
 import sizes from "../../../utils/sizes";
 import { images } from "../../../styles/global";
+
+//Context
 import { ThemeColorContext } from "../../../context/themeColorContext";
 
 interface HomePageComponentProps {
