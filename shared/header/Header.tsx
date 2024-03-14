@@ -1,34 +1,42 @@
 import { ReactNode, useContext } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 //utils
 import sizes from "../../utils/sizes";
-import { images } from "../../styles/global";
+import { COLORS, images } from "../../styles/global";
 
 //Context
 import { ThemeColorContext } from "../../context/themeColorContext";
 
-
-export default function HomePageComponent() {
-
+export default function MainHeader() {
   return (
     <>
-       <View style={styles.container}>
+      <SafeAreaView style={styles.headerBody}>
         <Image style={styles.tinyLogo} source={images.icons["QRImage"]} />
         <Text style={styles.text}>QR App</Text>
-      </View>
+        <Image style={styles.tinyLogo} source={images.icons["QRImage"]} />
+      </SafeAreaView>
     </>
-  )
-
+  );
 }
 
-
 const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
+  headerBody: {
+    flex: 0.1,
     padding: sizes.scaleWidthSize(10),
+    marginBottom: sizes.scaleWidthSize(10),
     flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
+    width: "100%",
+    backgroundColor: COLORS.accent.dark[400],
   },
   tinyLogo: {
     width: sizes.WIDTH_40,
@@ -39,6 +47,5 @@ const styles = StyleSheet.create({
     marginLeft: sizes.scaleWidthSize(5),
     fontFamily: "RegularFont",
     fontSize: sizes.FONT_SIZE_20,
-
   },
 });
