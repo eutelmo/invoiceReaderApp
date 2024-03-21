@@ -30,7 +30,7 @@ export default function CustomHeader() {
 
   return (
     <>
-      <View style={[styles.titleBox, themeContainerStyle, themeBorderStyle]}>
+      <View style={[styles.titleBox, themeBorderStyle]}>
         <SafeAreaView>
           <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
             <View style={styles.btnContainer}>
@@ -49,10 +49,10 @@ export default function CustomHeader() {
 
 const styles = StyleSheet.create({
   titleBox: {
-    backgroundColor: "#FFF",
+    backgroundColor: COLORS.accent.dark[400],
     padding: 10,
-
     borderBottomWidth: 1,
+    width: "100%",
   },
   btnContainer: {
     flexDirection: "row",
