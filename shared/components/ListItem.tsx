@@ -9,21 +9,26 @@ import sizes from "../../utils/sizes";
 //Types
 interface ListItemProps {
   Item: {
-    id: string;
-    title: string;
+    id: number;
+    nifEmitente: string; //A:
+    nifAdquirente: string; //B:
+    paisAdquirente: string; //C:
+    typeOfDoc: string; //D:
+    docState: string; //E:
+    date: string; //F:
+    uIdDoc: string; //G:
+    aTCUD: string; //H:
+    taxCountryRegion: string; //I1
+    basePriceNotIva: string; //I2
+    iva: string; //I3
+    taxValue: string; //I4
+    totalValue: string; //I6
+    codeControl: string;
+    certificateNumber: number;
   };
 }
 
-
 export default function ListItem(props: ListItemProps) {
-  const truncateString = (str: string, maxLength: number): string => {
-    if (str.length > maxLength) {
-      return str.substring(0, maxLength) + "...";
-    } else {
-      return str;
-    }
-  };
-
   return (
     <TouchableOpacity
       onPress={() => {
@@ -32,7 +37,7 @@ export default function ListItem(props: ListItemProps) {
     >
       <View style={styles.container}>
         <View style={styles.item}>
-          <Text style={styles.title}>{truncateString(props.Item.title, 20)}</Text>
+          <Text style={styles.title}>{props.Item.id}</Text>
           <Image source={images.icons["view"]} style={[styles.iconBack]} />
         </View>
       </View>
