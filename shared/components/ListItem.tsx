@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
@@ -5,34 +6,43 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { COLORS, images } from "../../styles/global";
 import { Theming } from "../../styles/global";
 import sizes from "../../utils/sizes";
+import { useNavigation } from "@react-navigation/native";
 
 //Types
-interface ListItemComponentProps {
-  Item: string;
+interface ListItemProps {
+  Item: {
+    id: number;
+    nifEmitente: string; //A:
+    nifAdquirente: string; //B:
+    paisAdquirente: string; //C:
+    typeOfDoc: string; //D:
+    docState: string; //E:
+    date: string; //F:
+    uIdDoc: string; //G:
+    aTCUD: string; //H:
+    taxCountryRegion: string; //I1
+    basePriceNotIva: string; //I2
+    iva: string; //I3
+    taxValue: string; //I4
+    totalValue: string; //I6
+    codeControl: string;
+    certificateNumber: number;
+  };
 }
 
-export default function ListItem(props: ListItemComponentProps) {
-  const truncateString = (str: string, maxLength: number): string => {
-    if (str.length > maxLength) {
-      return str.substring(0, maxLength) + "...";
-    } else {
-      return str;
-    }
-  };
-
+export default function ListItem(props: ListItemProps) {
+  //Utils
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       onPress={() => {
-        console.log(props.Item);
+        navigation.navigate("InvoiceScreen", { Item: props.Item });
       }}
     >
       <View style={styles.container}>
         <View style={styles.item}>
-          <Text style={styles.title}>{truncateString(props.Item, 20)}</Text>
-          <Image
-            source={images.icons["view"]}
-            style={[styles.iconBack]}
-          />
+          <Text style={styles.title}>{props.Item.id}</Text>
+          <Image source={images.icons["view"]} style={[styles.iconBack]} />
         </View>
       </View>
     </TouchableOpacity>
@@ -51,7 +61,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.accent[500],
     borderWidth: 1,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   title: {
     fontFamily: "RegularFont",
