@@ -20,14 +20,20 @@ export default function HomePageScreen() {
       <MainHeader />
       <SafeAreaView>
         <HomePageComponent
+          verifactionForNavigation={1}
           text="Adicionar despesas"
           image={images.icons["addIcon"]}
         />
         <HomePageComponent
+          verifactionForNavigation={2}
           text="Consultar despesas"
           image={images.icons["search"]}
         />
-        <HomePageComponent text="Sair" image={images.icons["doorIcon"]} />
+        <HomePageComponent
+          verifactionForNavigation={3}
+          text="Sair"
+          image={images.icons["doorIcon"]}
+        />
       </SafeAreaView>
     </View>
   );

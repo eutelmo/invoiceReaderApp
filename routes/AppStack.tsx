@@ -14,7 +14,7 @@ export default function AppStack() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="HomeScreen"
-        screenOptions={{ headerShown: false, gestureEnabled: false }}
+        screenOptions={{ headerShown: false, gestureEnabled: true }}
       >
         <Stack.Screen
           name="HomeScreen"

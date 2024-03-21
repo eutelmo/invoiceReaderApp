@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 //utils
 import sizes from "../../../utils/sizes";
-import { images } from "../../../styles/global";
+import { useNavigation } from "@react-navigation/native";
 
 //Context
 import { ThemeColorContext } from "../../../context/themeColorContext";
@@ -11,15 +11,30 @@ import { ThemeColorContext } from "../../../context/themeColorContext";
 interface HomePageComponentProps {
   text: string;
   image: number;
-  
+  verifactionForNavigation: number;
 }
 
 export default function HomePageComponent(props: HomePageComponentProps) {
   const { themeTextStyle } = useContext(ThemeColorContext);
 
+  //Utils navigation
+  const navigation = useNavigation();
 
   function testing() {
-    console.log(props.text);
+    switch (props.verifactionForNavigation) {
+      case 1: {
+        console.log("Camera");
+        break;
+      }
+      case 2: {
+        navigation.navigate("ListScreen" as never);
+        break;
+      }
+      case 3: {
+        console.log("Out");
+        break;
+      }
+    }
   }
   return (
     <TouchableOpacity onPress={testing}>
