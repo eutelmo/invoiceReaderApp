@@ -7,11 +7,15 @@ import { Theming } from "../../styles/global";
 import sizes from "../../utils/sizes";
 
 //Types
-interface ListItemComponentProps {
-  Item: string;
+interface ListItemProps {
+  Item: {
+    id: string;
+    title: string;
+  };
 }
 
-export default function ListItem(props: ListItemComponentProps) {
+
+export default function ListItem(props: ListItemProps) {
   const truncateString = (str: string, maxLength: number): string => {
     if (str.length > maxLength) {
       return str.substring(0, maxLength) + "...";
@@ -28,11 +32,8 @@ export default function ListItem(props: ListItemComponentProps) {
     >
       <View style={styles.container}>
         <View style={styles.item}>
-          <Text style={styles.title}>{truncateString(props.Item, 20)}</Text>
-          <Image
-            source={images.icons["view"]}
-            style={[styles.iconBack]}
-          />
+          <Text style={styles.title}>{truncateString(props.Item.title, 20)}</Text>
+          <Image source={images.icons["view"]} style={[styles.iconBack]} />
         </View>
       </View>
     </TouchableOpacity>
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.accent[500],
     borderWidth: 1,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   title: {
     fontFamily: "RegularFont",

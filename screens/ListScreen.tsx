@@ -16,6 +16,7 @@ import CustomHeader from "../shared/header/GoBackHeader";
 import ListItem from "../shared/components/ListItem";
 import sizes from "../utils/sizes";
 
+
 export default function ListScreen() {
   const DATA = [
     {
@@ -41,7 +42,7 @@ export default function ListScreen() {
             showsVerticalScrollIndicator={false}
             renderItem={({ item, index })=>{
               return (
-                <ListItem Item={item.title}/>
+                <ListItem Item={item}/>
               )
             }}
             keyExtractor={(item, index) => `${item.id}_${Date.now()}_${index}`}
