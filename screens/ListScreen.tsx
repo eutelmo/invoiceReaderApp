@@ -1,16 +1,26 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  SafeAreaView,
+} from "react-native";
 
 import { useColorScheme } from "react-native";
 import { COLORS } from "../styles/global";
 import { Theming } from "../styles/global";
 import LoadingIcon from "../shared/loadingIcon/loadingIcon";
+import CustomHeader from "../shared/header/GoBackHeader";
 
 export default function ListScreen() {
   return (
-    <View style={styles.centerContent}>
-      <Text>Invoice List</Text>
-    </View>
+    <>
+      <CustomHeader />
+      <View style={styles.centerContent}>
+        <Text>Invoice List</Text>
+      </View>
+    </>
   );
 }
 

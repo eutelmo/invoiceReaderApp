@@ -9,6 +9,7 @@ export const images = {
     search: require("../assets/icons/search.png"),
     addIcon: require("../assets/icons/plus.png"),
     QRImage: require("../assets/icons/QRImage.png"),
+    BackIcon: require("../assets/icons/icon-arrow-back.png"),
 
   },
 };
