@@ -12,11 +12,17 @@ import {
 import sizes from "../../utils/sizes";
 import { COLORS, images } from "../../styles/global";
 import { useNavigation } from "@react-navigation/native";
+
+//Context
 import { ThemeColorContext } from "../../context/themeColorContext";
 
-//COntext
 
-export default function CustomHeader() {
+//Types
+interface CustomHeaderProps {
+  onPressGoBack: () => void;
+}
+
+export default function CustomHeader({ onPressGoBack }: CustomHeaderProps) {
   //Context
   const {
     themeContainerStyle,
@@ -32,7 +38,7 @@ export default function CustomHeader() {
     <>
       <View style={[styles.titleBox, themeBorderStyle]}>
         <SafeAreaView>
-          <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
+          <TouchableWithoutFeedback onPress={onPressGoBack}>
             <View style={styles.btnContainer}>
               <Image
                 source={images.icons["BackIcon"]}

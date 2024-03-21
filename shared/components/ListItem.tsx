@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
@@ -5,6 +6,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { COLORS, images } from "../../styles/global";
 import { Theming } from "../../styles/global";
 import sizes from "../../utils/sizes";
+import { useNavigation } from "@react-navigation/native";
 
 //Types
 interface ListItemProps {
@@ -29,10 +31,12 @@ interface ListItemProps {
 }
 
 export default function ListItem(props: ListItemProps) {
+  //Utils
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       onPress={() => {
-        console.log(props.Item);
+        navigation.navigate("InvoiceScreen", { Item: props.Item });
       }}
     >
       <View style={styles.container}>
